@@ -53,8 +53,8 @@ class Extractor
 		if(!class_exists('ZipArchive'))
 		{
 			$GLOBALS['status']	=	array(
-											'error' => 'Your PHP version does not support unzip functionality.'
-										);
+								'error' => 'Your PHP version does not support unzip functionality.'
+							);
 		}
 
 		$zip 	=	new ZipArchive();
@@ -67,23 +67,23 @@ class Extractor
 				$zip->extractTo($destination);
 				$zip->close();
 				$GLOBALS['status']	=	array(
-												'success'=>'Files unzipped successfully'
-											);
+									'success'=>'Files unzipped successfully'
+								);
 				return true;
 			}
 			else
 			{
 				$GLOBALS['status']	=	array(
-												'error'=>'Directory not writeable by webserver.'
-											);
+									'error'=>'Directory not writeable by webserver.'
+								);
 				return false;
 			}
 		}
 		else
 		{
 			$GLOBALS['status']		=	array(
-											'error' =>'Cannot read .zip archive.'
-										);
+									'error' =>'Cannot read .zip archive.'
+								);
 			return false;
 		}
 	}
@@ -101,8 +101,8 @@ class Extractor
 		if(!function_exists('gzopen'))
 		{
 			$GLOBALS['status']	=	array(
-											'error'=>'Error: Your PHP has no zlib support enabled.'
-									);
+								'error'=>'Error: Your PHP has no zlib support enabled.'
+							);
 			return false;
 		}
 
@@ -120,8 +120,8 @@ class Extractor
 		if(file_exists($destination.'/'.$filename))
 		{
 			$GLOBALS['status']	=	array(
-											'success' =>'File unzipped successfully.'
-										);
+								'success' =>'File unzipped successfully.'
+							);
 			return true;
 		}
 		else
@@ -144,8 +144,8 @@ class Extractor
 		if(!class_exists('RarArchive'))
 		{
 			$GLOBALS['status']	=	array(
-											'error' =>'Your PHP version does not support .rar archive functionality.'
-										);
+								'error' =>'Your PHP version does not support .rar archive functionality.'
+							);
 			return false;
 		}
 		// Check if archive is readable.
@@ -162,23 +162,23 @@ class Extractor
 
 				$rar->close();
 				$GLOBALS['status']	=	array(
-											'success' => 'File extracted successfully.'
-										);
+									'success' => 'File extracted successfully.'
+								);
 				return true;
 			}
 			else
 			{
 				$GLOBALS['status']	=	array(
-												'error' => 'Directory not writeable by webserver.'
-											);
+									'error' => 'Directory not writeable by webserver.'
+								);
 				return false;
 			}
 		}
 		else
 		{
 			$GLOBALS['status']		=	array(
-												'error'=>'Cannot read .rar archive.'
-											);
+									'error'=>'Cannot read .rar archive.'
+								);
 			return false;
 		}
 	}
